@@ -1,224 +1,81 @@
-# 📊 Customer Churn Analysis & Prediction
+# Customer Retention
 
-A comprehensive data science project that analyzes customer churn patterns and builds predictive models to identify customers at risk of leaving. The project includes exploratory data analysis, machine learning model development, and a deployable application for real-time predictions.
+## 🔴 Detailed Session on EDA:
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)](https://jupyter.org/)
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.0%2B-orange)](https://scikit-learn.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Alt text](https://user-images.githubusercontent.com/34673684/117579611-49cd5880-b126-11eb-9e2b-ef865c090808.png)](https://www.youtube.com/watch?v=baL7OrGWlxs)
 
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Dataset](#dataset)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Analysis Pipeline](#analysis-pipeline)
-- [Model Performance](#model-performance)
-- [Technologies Used](#technologies-used)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
+## 🔴 One of my previous Sessions on EDA, Model Building & Model Deployment: 
 
-## 🎯 Overview
+[![Alt text](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/CC.JPG)](https://www.youtube.com/watch?v=GVECbcKUio4)
 
-Customer churn analysis is critical for businesses to understand why customers leave and predict which customers are at risk. This project provides a complete end-to-end solution including:
+## 🔴 What is Customer Churning ?
 
-- **Exploratory Data Analysis (EDA)** to understand churn patterns
-- **Feature Engineering** and data preprocessing
-- **Machine Learning Models** for churn prediction
-- **Model Evaluation** and performance analysis
-- **Deployable Application** for real-time predictions
+![Customer Retention](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco1.JPG)
 
-## ✨ Features
+## 🔴 What are the different Churn Scenarios ?
 
-- 🔍 **Comprehensive EDA**: Deep dive into customer behavior and churn patterns
-- 📈 **Advanced Analytics**: Statistical analysis and correlation studies
-- 🤖 **Machine Learning Pipeline**: Multiple algorithms for churn prediction
-- 💾 **Model Persistence**: Saved trained models for deployment
-- 🚀 **Production Ready**: Deployable application with `app.py`
-- 📊 **Rich Visualizations**: Interactive plots and insights
-- 📄 **Detailed Documentation**: Complete analysis report in PDF format
+![Churn Scenarios](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco2.JPG)
 
-## 📂 Dataset
+## 🔴 Decision Cycle of a Subscriber ?
 
-The project analyzes customer data including:
-- **Customer Demographics**: Age, gender, location, etc.
-- **Service Information**: Plans, features, tenure
-- **Usage Patterns**: Call details, data usage, billing
-- **Churn Status**: Target variable for prediction
+![Decision Cycle](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco3.JPG)
 
-### Data Files:
-- `first_telc.csv` - Primary dataset
-- `tel_churn.csv` - Additional churn data
-- `WA_Fn-UseC_-Telco-Customer-Churn.csv` - Comprehensive customer dataset
+## 🔴 What are the different Churn Segments ?
 
-## 📁 Project Structure
+![Churn Segments](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco4.JPG)
+
+## 🔴 Solution Overview
+
+![Solution](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco5.JPG)
+
+
+In this repository, we have performed the end to end Exploratory Data Analysis, and idenfitied the characteristics of the customers that are more likely to churn, and I have used them wisely to create a model, and lately, have deployed the model.
+
+### 🟢 For EDA, please refer to : Churn Analysis - EDA.ipynb
+### 🟢 For Model Building, please refer to: Churn Analysis - Model Building.ipynb
+### 🟢 For Model Deployment, please refer to app.py
+
+
+### 🔵 Creating the flask API
 
 ```
-customer-churn-analysis/
-│
-├── .ipynb_checkpoints/                      # Jupyter checkpoint files
-├── images/                                  # Visualization outputs
-├── templates/                               # HTML templates for web app
-├── app.py                                   # Main Flask/Streamlit application (5 KB)
-├── Churn Analysis - EDA.ipynb             # Exploratory Data Analysis notebook (875 KB)
-├── Churn Analysis - Model Building.ipynb  # Machine Learning model development (61 KB)
-├── first_telc.csv                          # Primary dataset (10 KB)
-├── model.sav                               # Trained model (pickled) (577 KB)
-├── README.md                               # Project documentation (3 KB)
-├── tel_churn.csv                           # Secondary churn dataset (801 KB)
-├── Untitled.ipynb                          # Additional analysis notebook (9 KB)
-└── WA_Fn-UseC_-Telco-Customer-Churn.csv   # Main customer churn dataset (955 KB)
+app = Flask("__name__")
 ```
 
-## 🚀 Installation
-
-### Prerequisites
-```bash
-Python 3.8+
-pip package manager
+The loadPage method calls our home.html.
+```
+@app.route("/")
+def loadPage():
+	return render_template('home.html', query="")
 ```
 
-### Clone the Repository
-```bash
-git clone https://github.com/ParthMedatwal/customer-churn-analysis.git
-cd customer-churn-analysis
+The predict method is our POST method, which is basically called when we pass all the inputs from our front end and click SUBMIT.
+```
+@app.route("/", methods=['POST'])
+def predict():
+```
+  
+The run() method of Flask class runs the application on the local development server.
+```
+app.run()
 ```
 
-### Install Dependencies
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter flask streamlit plotly
+
+Yay, our model is ready, let’s test our bot.
+The above given Python script is executed from Python shell.
+
+Go to Anaconda Prompt, and run the below query.
 ```
-
-### For Jupyter Notebooks
-```bash
-pip install jupyter notebook ipykernel
-```
-
-## 💻 Usage
-
-### 1. Run the Web Application
-```bash
 python app.py
 ```
 
-### 2. Explore the Analysis
-```bash
-jupyter notebook "Churn Analysis - EDA.ipynb"
+
+Below message in Python shell is seen, which indicates that our App is now hosted at http://127.0.0.1:5000/ or localhost:5000
+```
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-### 3. Review Model Building
-```bash
-jupyter notebook "Churn Analysis - Model Building.ipynb"
-```
 
-### 4. Load Trained Model
-```python
-import pickle
-model = pickle.load(open('model.sav', 'rb'))
-# Make predictions on new data
-predictions = model.predict(new_customer_data)
-```
+HERE'S HOW OUR FRONTEND LOOKS LIKE:
 
-## 🔄 Analysis Pipeline
-
-### Phase 1: Exploratory Data Analysis
-- **Data Quality Assessment**: Missing values, duplicates, data types
-- **Univariate Analysis**: Distribution of individual features
-- **Bivariate Analysis**: Relationship between features and churn
-- **Multivariate Analysis**: Complex feature interactions
-- **Statistical Testing**: Hypothesis testing for significance
-
-### Phase 2: Data Preprocessing
-- **Data Cleaning**: Handle missing values and outliers
-- **Feature Engineering**: Create new meaningful features
-- **Encoding**: Convert categorical variables to numerical
-- **Scaling**: Normalize features for model training
-- **Feature Selection**: Select most relevant features
-
-### Phase 3: Model Development
-- **Algorithm Selection**: Compare multiple ML algorithms
-- **Hyperparameter Tuning**: Optimize model parameters
-- **Cross-Validation**: Ensure model generalization
-- **Model Evaluation**: Comprehensive performance metrics
-- **Model Persistence**: Save best performing model
-
-### Phase 4: Deployment
-- **Web Application**: User-friendly interface for predictions
-- **Model Integration**: Real-time prediction capabilities
-- **Results Visualization**: Interactive dashboards
-
-## 📊 Model Performance
-
-### Key Metrics Achieved:
-- **Accuracy**: 85%+ on test data
-- **Precision**: High precision for churn prediction
-- **Recall**: Effective identification of at-risk customers
-- **F1-Score**: Balanced performance metric
-- **ROC-AUC**: Strong discriminative ability
-
-### Business Impact:
-- 🎯 **Proactive Retention**: Identify at-risk customers early
-- 💰 **Cost Reduction**: Reduce customer acquisition costs
-- 📈 **Revenue Protection**: Prevent revenue loss from churn
-- 🔄 **Process Optimization**: Data-driven retention strategies
-
-## 🛠️ Technologies Used
-
-- **Python**: Core programming language
-- **Pandas**: Data manipulation and analysis
-- **NumPy**: Numerical computations
-- **Matplotlib & Seaborn**: Data visualization
-- **Plotly**: Interactive visualizations
-- **Scikit-learn**: Machine learning algorithms
-- **Jupyter Notebook**: Interactive development
-- **Flask/Streamlit**: Web application framework
-- **Pickle**: Model serialization
-
-## 📈 Key Insights
-
-### Customer Behavior Patterns:
-- High churn correlation with contract type and tenure
-- Payment method significantly impacts retention
-- Service usage patterns predict churn likelihood
-- Customer demographics influence churn probability
-
-### Actionable Recommendations:
-- 🎯 **Target High-Risk Segments**: Focus retention efforts on identified patterns
-- 💳 **Payment Optimization**: Encourage automatic payment methods
-- 📞 **Proactive Outreach**: Contact customers showing early warning signs
-- 🎁 **Personalized Offers**: Tailor retention offers based on customer profile
-
-## 🎯 Applications
-
-This project demonstrates expertise in:
-- 📊 **Business Analytics**: Customer behavior analysis
-- 🤖 **Machine Learning**: Predictive modeling for business outcomes
-- 📈 **Data Science**: End-to-end analytical solution
-- 💼 **Business Intelligence**: Actionable insights for decision making
-
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**[Your Name]**
-- GitHub: [Parth Medatwal](https://github.com/ParthMedatwal)
-- LinkedIn: [Parth Medatwal](https://linkedin.com/in/your-profile)
-- Email: pmedatwal226@gmail.com
-
-## 🙏 Acknowledgments
-
-- Business analytics community for domain insights
-- Open-source data science libraries
-- Customer analytics research papers and methodologies
-
----
-
-⭐ **Star this repository if you found it helpful!**
-
-📧 **Contact me for collaboration opportunities or questions about the analysis!**
+![Customer Retention](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco6.JPG)
