@@ -67,7 +67,6 @@ customer-churn-analysis/
 ├── Churn Analysis - Model Building.ipynb  # Machine Learning model development (61 KB)
 ├── first_telc.csv                          # Primary dataset (10 KB)
 ├── model.sav                               # Trained model (pickled) (577 KB)
-├── README.md                               # Project documentation (3 KB)
 ├── tel_churn.csv                           # Secondary churn dataset (801 KB)
 ├── Untitled.ipynb                          # Additional analysis notebook (9 KB)
 └── WA_Fn-UseC_-Telco-Customer-Churn.csv   # Main customer churn dataset (955 KB)
